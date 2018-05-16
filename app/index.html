@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<div id="intro"> 
+		<img src="img/ufo.svg" alt="">
+		<h1>UFO Engineering</h1>
+	</div>
+	<div class="main-wrapper">	
+		<div class="container">	
+				<div class="row">	
+<div class="col-sm-3" id="side-bar">
+		<h3>Search mode</h3>
+		<div id="full-screen-wrp">
+		<ul id="nav-bar">
+			<li><a href="#main-inner" id="useAdress" class="anc active">Use Address</a></li>
+			<li><a href="#main-inner" id="useMapForMarker" class="anc">Use Map Pin</a></li>
+			<li><a href="#main-inner" id="getCurrentPosition" class="anc">My GPS Location</a></li>
+          </ul>
+		<div id="typeOfResult">
+			<h3>Type of result</h3>
+	    		<div class="checkbox checkboxes-wrp">
+	    		    <label>
+	    		    	<input type="radio" value="bakery" name="type"> 
+	    		    		bakery
+	    			</label>
+	    		</div>
+	    		<div class="checkbox checkboxes-wrp">
+	    		    <label>
+						<input type="radio" value="cafe" name="type"> 
+	    		   		cafe
+	    		  	</label>
+	    		</div>
+				<div class="checkbox checkboxes-wrp">
+					<label>
+						<input type="radio" value="meal_delivery" name="type"> 	 
+					    meal delivery
+						</label>
+					</div>
+				<div class="checkbox checkboxes-wrp">
+				  <label>
+					<input type="radio" value="meal_takeaway" name="type"> 
+				    meal takeaway	    		   
+				  </label>
+				</div>
+				<div class="checkbox checkboxes-wrp">
+				  <label>
+					<input type="radio" value="restaurant" checked="" name="type"> 
+					restaurant
+					</label>
+	    		  </div>
+				</div>
+    	</div>
+	</div>
+	<div class="col-sm-9">	
+		<h2>Restaurants</h2>
+		<div id="search-form-wrp">
+				<form id="search-form" class="active-adress">
+				<input type="hidden" name="distance" id="location_id" value="0">
+					<div class="row">
+					<div class="col-md-7">
+						<div class="adress-input-wrp line">
+								<label for="adress">Enter address:</label>
+								<input type="text" name="adress" id="adressInput" placeholder="Enter an address here" value="">
+						</div>
+						<div class="line">
+							<label for="distance">Search distance in miles:</label>
+							<div id="distance-wrp">
+								<input type="number" name="distance" id="distanceInput" value="2">
+								<span id="inc" class="distance-btn"></span>
+								<span id="dec" class="distance-btn"></span>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-5 ">
+						<div class="col-md-6 no-padding" id="distanceSI">
+							<div class="col line"><input type="radio" name="si" value="1000" checked="">kilometers</div>
+							<div class="col line"><input type="radio" name="si" value="1609" >miles</div>
+						</div>
+						<div class="col-md-6 line">
+							<input type="submit" value="search" id="startSearch">
+						</div>
+					</div>
+				</div>
+				</form>
+			</div>
+
+
+	<div id="map-app" class="row">
+		<div class="col-md-3 no-padding">
+			<div  id="navigation-wrp">
+			<ul id="app-nav"></ul>
+		</div>
+		</div>
+		<div class="col-md-9">
+			<div id="detail-nav" class="btn-group btn-group-justified" role="group">
+			  <div class="btn-group" role="group">
+				<a href="#app-content" class="btn" id="maptab" data-action="showInfoBlock">Map</a>
+			  </div>
+			  <div class="btn-group" role="group">
+        		<a href="#directions_info" class="btn" id="dirtab" data-action="showDirectionBlock">Directions</a>
+			  </div>
+			  <div class="btn-group" role="group">
+				<a href="#place_phone" class="btn" id="sitetab" data-action="showInfoBlock">Website</a>
+			  </div>
+			  <div class="btn-group" role="group">
+				<a href="#location_info" class="btn" id="infotab" data-action="showInfoBlock">Info</a>
+			  </div>
+			  <div class="btn-group" role="group">
+				<a href="#place_photos" class="btn" id="promtab" data-action="showInfoBlock">Photo</a>
+			  </div>
+			  <div class="btn-group" role="group">
+				<a href="#place_reviews" class="btn" id="artcltab" data-action="showInfoBlock">Reviews</a>
+			  </div>
+			</div>
+		<div id="app-content">
+			<div id="placeMapName"></div>
+			<div id="map_b" data-texton="true" data-locationid="0" data-city="Odessa" data-lat="46.4799632" data-lng="30.7411492" data-locationradius="" data-displayhotels="" data-slug="area-restaurants" class="maps" style="position: relative; overflow: hidden;">
+			</div>
+    <div id="location_info" style="display:none;" class="custom-page-content myclass">
+        <strong id="place_name"></strong>
+        <p id="place_address"></p>
+        <p id="place_phone"> </p>
+        <a id="place_site" target="_blank"></a>
+        <strong>Types </strong>
+        <hr style="margin-top:0px;">
+        <p id="place_types"> </p>
+
+        <strong>Photos</strong>
+        <hr style="margin-top:0px;">
+        <div id="place_photos">
+                </div>
+
+        <strong>Reviews</strong>
+        <hr style="margin-top:0px;">
+        <ul id="place_reviews">
+
+        </ul>
+    </div>
+    <div id="directions_info" style="display:none;" class="custom-page-content myclass">
+      <strong>Driving</strong>
+      <div id="directions_driving">
+      </div>
+      <strong>Transit</strong>
+      <div id="directions_transit">
+      </div>
+      <strong>Bicycling</strong>
+      <div id="directions_bicycling">
+      </div>
+      <strong>Walking</strong>
+      <div id="directions_walking">
+      </div>
+    </div>
+		</div>
+	</div>
+
+
+
+		</div>
+				</div>
+		</div>
+
+
+	</div>
+</div>
+	<script>
+		
+		 var ENV='production';
+		 var DEFAULT_POINT= {
+		     lat: "42.3600825",
+		     lng: "-71.05888010000001",
+		     address: "Boston"
+		 }
+		             var LOCATION_POINT= ''
+                     
+
+	</script>
+	<script>
+		
+		var stylesToHead = [
+				'css/libs.min.css'
+		];
+		document.addEventListener('DOMContentLoaded', function(){ 
+			stylesToHead.forEach(function callback(currentValue) {
+				var styleLink = document.createElement('link');
+						styleLink.rel='stylesheet';
+						styleLink.href=currentValue;
+				document.head.appendChild(styleLink);
+			});
+		})
+	</script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvyRKKzT51m0CQsxFXlI4A5lUIBwhsJLw&libraries=geometry,places&sensor=false""></script>
+	<script defer src="js/libs.min.js"></script>
+	<script defer src="js/map_module_bundle.js"></script>
+	<script defer src="js/common.js"></script>
+
+</body>
+</html>

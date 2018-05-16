@@ -1,0 +1,330 @@
+@import "bourbon/bourbon"
+@import "btstrp"
+// @import "fontello"
+@import "fonts.sass"
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700')
+body
+	font-weight: normal
+	font-family: 'Open Sans'
+	font-size: 14px
+	min-width: 320px
+	position: relative
+	line-height: 1.42857
+	-webkit-font-smoothing: antialised
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: red
+body input:required:valid,
+body textarea:required:valid
+	color: green
+
+.hidden
+	display: none
+
+$textD: #493548
+.no-padding
+	padding: 0 !important
+body 
+	background-color: #493548
+	ul
+		padding: 0
+		margin: 0
+		li
+			list-style: none !important
+	input[type="radio"]
+		position: relative
+		width: 18px
+		height: 18px 
+		margin-top: 0
+		display: inline-block
+		vertical-align: middle
+		top: -2px 
+		margin-right: 5px
+		&:checked
+			&:after
+				display: block
+		&:before,
+		&:after
+			position: absolute
+			left: 0
+			top: 0
+			height: 100%
+			border-radius: 50%
+			width: 100%
+			content: ''
+		&:after
+			background-color: #087F8C
+			width: 10px
+			height: 10px
+			top: 50%
+			display: none
+			left: 50%
+			margin: -5px 0 0 -5px
+		&:before
+			background-color: #fff
+			border: 2px solid #087F8C
+	#intro
+		text-align: center	
+		display: block
+		line-height: normal
+		margin-bottom: 15px
+		padding-top: 10px
+	h1 
+		margin: 0
+		font-size: 30px	
+		color: #fff
+	img
+		width: 70px
+		height: 70px
+
+	.main-wrapper
+		.adress-input-wrp
+			line-height: 30px
+		h2,
+		h3
+			color: $textD
+			margin: 20px 0
+		.container
+			background-color: #fff
+			border-radius: 25px
+			padding: 20px
+	#detail-nav
+		text-align: center	
+		padding: 1px
+		.btn-group
+			display: inline-block
+			
+			a
+				background-color: #5D4E60
+				color: #fff
+				display: block
+				padding: 5px 10px
+				margin: 5px 5px
+	#map_b
+		height: 400px
+	#place_name,	
+	#placeMapName
+		font-weight: normal
+		font-size: 22px
+		margin: 10px 0
+	#nav-bar
+		li
+			margin-bottom: 5px
+		a
+			display: block
+			color: #fff
+			padding: 0 5px
+			height: 30px
+			line-height: 30px
+			position: relative
+			transition: all 0.3s ease
+			z-index: 5
+			&:hover
+				&:after
+					width: 100%
+			&:after,
+			&:before
+				height: 100%
+				left: 0
+				top: 0 
+				background-color: rgba(0,0,0,.1)
+				position: absolute
+				content: ''
+				transition: all 0.3s ease
+			&:after
+				width: 0
+				z-index: -1
+			&:before			
+				width: 100%
+				background-color: #087F8C
+				z-index: -1	
+			&.active
+				color: $textD
+				&:before
+					background-color: #CDEDF6
+	#search-form
+		line-height: 30px
+		padding-bottom: 30px
+		&.active-adress
+			.adress-input-wrp
+				display: block
+		#startSearch
+			width: 100%
+			height: 35px
+			border: none
+			margin-top: 20px
+			padding: 0
+			font-size: 15px
+			text-transform: uppercase
+			font-weight: 400
+			color: #CDEDF6
+			background-color: #493548
+
+		.adress-input-wrp
+			display: none
+		.line
+			padding-top: 5px
+			padding-bottom: 5px
+		input[type="text"],
+		input[type="number"]
+			height: 30px
+			width: 300px
+			padding-left: 10px
+		label
+			width: 170px
+			display: inline-block
+			vertical-align: top
+		#distance-wrp
+			display: inline-block
+			vertical-align: top
+	#place_photos
+		text-align: center
+		margin: 0 -10px
+		.item
+			display: inline-block
+			vertical-align: top
+			margin: 1px
+		.img
+			display: block
+			width: 150px
+			height: 150px
+			background-size: cover
+			cursor: pointer
+			box-shadow: none
+			transition: all 0.4s ease
+			&:hover
+				transform: scale(1.1)
+				box-shadow: 0px 0px 120px -23px rgba(0,0,0,0.75)
+	#navigation-wrp
+		max-height: 505px
+		#app-nav
+			padding-right: 10px
+			a
+				display: block
+				background-color: #CDEDF6
+				color: #493548
+				padding: 3px 7px
+				margin-bottom: 5px
+				transition: all 0.3s ease
+				&:hover
+					background-color: #5EB1BF
+				&.active
+					background-color: #493548
+					color: #fff
+	#map-app
+		background-color: #F5FBFD
+		padding: 10px
+		border-radius: 20px
+		a[target="_blank"]
+			display: none !important
+		.map-control
+			position: absolute
+			left: 0
+			bottom: 0
+			background-color: #fff
+			width: 100%
+			z-index: 6
+			padding: 15px 7px
+			.custom-map-btn
+				display: inline-block
+				font-size: 12px
+				text-transform: uppercase
+				margin-right: 15px
+				position: relative
+				padding-left: 25px
+				&.full-screen:before
+					background-image: url(../img/fs.svg)
+				&.nasa-screen:before
+					background-image: url(../img/satellite.svg)
+				&.map-screen:before
+					background-image: url(../img/map.svg)					
+				&:before
+					position: absolute
+					left: 0
+					top: 50%
+					width: 20px
+					height: 20px
+					margin-top: -10px
+					background-position: center
+					background-repeat: no-repeat
+					background-size: contain
+					content: ''
+				span
+					cursor: inherit !important
+			.fs
+				display: none	
+		.gmnoprint
+			span
+				display: none	
+
+	#place_address,
+	#place_phone,
+	#place_site
+		position: relative
+		padding-left: 40px
+		display: block
+		padding-top: 5px
+		&:before
+			left: 0
+			top: 0
+			width: 30px
+			height: 30px 
+			content: ''
+			position: absolute
+			background-size: contain
+			background-position: center
+	#place_phone
+		&:before
+			background-image: url(../img/phn.svg)			
+	#place_site
+		margin-top: 30px
+		&:before
+			background-image: url(../img/www.svg)
+	#place_address
+		&:before
+			background-image: url(../img/placeholder.svg)
+	#location_info
+		strong
+			margin-top: 35px
+			display: block
+
+.fsmode
+	.custom-map-btn
+		&.full-screen
+			&:before
+				background-image: url(../img/icon.svg) !important				
+	.fs 
+		display: block !important
+	.nfs
+		display: none !important	
+
+	#full-screen-wrp 
+		position: fixed
+		left: 0
+		top: 0
+		padding: 20px
+		z-index: 8888
+		color: #fff
+		background-color: rgba(0, 0, 0, .6)
+		#search-form
+			padding-bottom: 0
+			.col-md-7,
+			.col-md-5
+				width: 100%
+				float: none
+			input[type="text"], 
+			input[type="number"]
+				width: 150px
+.maps.if-fullscreen 
+	position: fixed !important
+	top: 0 !important
+	left: 0 !important
+	z-index: 999 !important
+	width: 100% !important
+	height: 100% !important
+
+
+
+
+@import "media.sass"		
